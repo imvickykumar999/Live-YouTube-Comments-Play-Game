@@ -1,5 +1,4 @@
 from googleapiclient.discovery import build
-from pynput.keyboard import Controller
 from pynput.keyboard import Controller, Key
 import time
 
@@ -13,22 +12,23 @@ def press_key(comment):
         'a': 'a',
         's': 's',
         'd': 'd',
-        'jump': Key.space, 
-        'f5': Key.f5, 
-        'f3': Key.f3, 
+        'jump': Key.space
     }
     # Normalize the comment text
     normalized_comment = comment.lower().strip()
     # Check if the comment matches any mapped key
     if normalized_comment in key_map:
         key = key_map[normalized_comment]
+
         keyboard.press(key)
+        time.sleep(1)
         keyboard.release(key)
         print(f"Pressed key: {key}")
 
 def get_live_chat_messages(video_id):
     youtube = build('youtube', 'v3', developerKey='AIzaSyCcJX4qdbo9caqxZSKDmuBjNVWfvq8_Wcs')
 
+    # Get the live chat ID
     video_response = youtube.videos().list(
         part='liveStreamingDetails',
         id=video_id
@@ -45,22 +45,26 @@ def get_live_chat_messages(video_id):
         return
 
     # Fetch live chat messages in a loop
+    print("Fetching live chat messages...")
     while True:
         chat_response = youtube.liveChatMessages().list(
             liveChatId=live_chat_id,
             part='snippet,authorDetails'
         ).execute()
 
-        for item in chat_response['items']:
-            author = item['authorDetails']['displayName']
-            message = item['snippet']['displayMessage']
+        # Ensure there are items in the response
+        if 'items' in chat_response and chat_response['items']:
+            # Get the last message from the chat
+            last_message = chat_response['items'][-1]
+            author = last_message['authorDetails']['displayName']
+            message = last_message['snippet']['displayMessage']
             print(f"{author}: {message}")
 
             # Call press_key if comment matches any key
             press_key(message)
 
         # Sleep for a few seconds before fetching new messages
-        time.sleep(5)
+        time.sleep(1)
 
 # Replace with your live video ID
-get_live_chat_messages('Mvr4NQF0IuQ')
+get_live_chat_messages('M6lg2WdkKa8')
