@@ -47,11 +47,11 @@ def turn(direction):
 # Process comments and map them to actions
 def process_comment(comment):
     normalized_comment = comment.lower().strip()
-    if normalized_comment == 'jump':
-        keyboard.press(Key.space)
-        time.sleep(0.1)
-        keyboard.release(Key.space)
-    elif normalized_comment == 'w':
+    # if normalized_comment == 'jump':
+    #     keyboard.press(Key.space)
+    #     time.sleep(0.1)
+    #     keyboard.release(Key.space)
+    if normalized_comment == 'w':
         start_moving_forward()
     elif normalized_comment == 'a':
         turn('left')

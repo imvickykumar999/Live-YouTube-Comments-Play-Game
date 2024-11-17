@@ -67,4 +67,4 @@ def get_live_chat_messages(video_id):
         time.sleep(1)
 
 # Replace with your live video ID
-get_live_chat_messages('M6lg2WdkKa8')
+get_live_chat_messages('Mvr4NQF0IuQ')
