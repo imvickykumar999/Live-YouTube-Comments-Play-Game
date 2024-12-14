@@ -112,7 +112,7 @@ def play_tic_tac_toe(youtube, live_chat_id):
             print(f"{value[ox % 2]}'s turn.")
 
         # Poll every second
-        time.sleep(1)
+        time.sleep(5)
 
 def tic_tac_toe_with_live_chat(video_id, api_key):
     youtube, live_chat_id = get_live_chat_messages(video_id, api_key)
@@ -120,12 +120,11 @@ def tic_tac_toe_with_live_chat(video_id, api_key):
         return
 
     while True:
-        # time.sleep(3)
         play_tic_tac_toe(youtube, live_chat_id)  # Restart the game after it ends
 
 # Replace these values with your YouTube video ID and API key
-VIDEO_ID = 'lqtkoPsNTWM'  # Replace with your live video ID
+VIDEO_ID = 'UtKmdGkmGZw'  # Replace with your live video ID
 
 # https://console.cloud.google.com/apis/credentials/key/83da1257-e24d-484f-924b-d7879612b6ff?project=imvickykumar999-1723015985916
-API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'  # Replace with your API key
+API_KEY = 'AIzaSyAfeUNC-6MdtUfRX0BbrvB-gvGd7Wg7nsU'  # Replace with your API key
 tic_tac_toe_with_live_chat(VIDEO_ID, API_KEY)
