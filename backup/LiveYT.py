@@ -3,7 +3,7 @@ import time
 
 def get_live_chat_messages(video_id):
     # Initialize YouTube API client
-    youtube = build('youtube', 'v3', developerKey='AIzaSyCcJX4qdbo9caqxZSKDmuBjNVWfvq8_Wcs')
+    youtube = build('youtube', 'v3', developerKey='YOUR API KEY')
 
     # Get live chat ID
     video_response = youtube.videos().list(

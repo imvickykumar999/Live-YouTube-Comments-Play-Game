@@ -6,7 +6,7 @@ import time
 keyboard = Controller()
 
 # YouTube API setup
-API_KEY = 'AIzaSyCcJX4qdbo9caqxZSKDmuBjNVWfvq8_Wcs'  # Replace with your API key
+API_KEY = 'YOUR API KEY'  # Replace with your API key
 VIDEO_ID = input('Enter Live YouTube Video ID : ')  # Replace with your live video ID
 
 # Global flags

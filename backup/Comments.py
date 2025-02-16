@@ -2,7 +2,7 @@
 def comments(video_id = 'Cpc_rHf1U6g'):
     from googleapiclient.discovery import build
 
-    api_key = 'AIzaSyCcJX4qdbo9caqxZSKDmuBjNVWfvq8_Wcs'
+    api_key = 'YOUR API KEY'
     dict = {}
 
     # def video_comments(video_id):
