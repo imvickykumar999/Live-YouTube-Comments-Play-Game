@@ -77,7 +77,7 @@ async def on_message(message):
         print("🦘 Jumping...")
     elif content == "dig":
         mouse.press(Button.left)
-        time.sleep(0.5)  # Hold left click for 0.5 seconds
+        time.sleep(5)  # Hold left click for 0.5 seconds
         mouse.release(Button.left)
         print("⛏️ Digging...")
 
