@@ -60,40 +60,30 @@ async def on_message(message):
             print("⏹ Stopped moving forward.")
         keyboard.release('a')
         keyboard.release('d')
-    elif content == "a":
-        keyboard.press('a')
-        time.sleep(0.1)
-        keyboard.release('a')
-        print("↩ Turning left...")
-    elif content == "d":
-        keyboard.press('d')
-        time.sleep(0.1)
-        keyboard.release('d')
-        print("↪ Turning right...")
     elif content == "jump":
         keyboard.press(Key.space)
-        time.sleep(0.1)
+        time.sleep(2)
         keyboard.release(Key.space)
         print("🦘 Jumping...")
     elif content == "dig":
         mouse.press(Button.left)
-        time.sleep(5)  # Hold left click for 0.5 seconds
+        time.sleep(10)
         mouse.release(Button.left)
         print("⛏️ Digging...")
 
     # Handle turning with angles
-    match = re.match(r"turn (left|right) (\d+)", content)
+    match = re.match(r"(a|d) (\d+)", content)
     if match:
         direction, angle = match.groups()
         angle = int(angle)
 
-        if direction == "left":
+        if direction == "a":
             keyboard.press('a')
         else:
             keyboard.press('d')
 
         time.sleep(angle / 100)  # Adjust turning time based on angle
-        keyboard.release('a' if direction == "left" else 'd')
+        keyboard.release('a' if direction == "a" else 'd')
         print(f"🔄 Turning {direction} by {angle} degrees...")
 
 # Function to start the bot
